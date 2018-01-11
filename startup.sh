@@ -32,5 +32,5 @@ echo "$USERNAME ALL = NOPASSWD: ALL" > $SUDOERS_DEPLOYFILE
 visudo -c -f $SUDOERS_DEPLOYFILE
 
 # Disable root SSH access
-sed -i '/^PermitRootLogin[\t]\+\w\+$/{ s//PermitRootLogin no /g; }' /etc/ssh/sshd_config
+sed -i '/^PermitRootLogin yes$/{ s//PermitRootLogin no/g; }' /etc/ssh/sshd_config
 systemctl restart ssh
