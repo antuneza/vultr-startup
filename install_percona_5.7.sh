@@ -12,3 +12,5 @@ echo "percona-server-server-5.7 percona-server-server-5.7/re-root-pass password 
 
 sudo apt-get -y install percona-server-server-5.7
 
+wget https://raw.githubusercontent.com/antuneza/vultr-startup/master/mysqld.cnf
+sudo cp mysqld.cnf /etc/mysql/percona-server.conf.d/mysqld.cnf
