@@ -19,5 +19,7 @@ sudo mv wordpress /var/www/$WP_SITE
 sudo chown -R www-data:www-data /var/www/$WP_SITE
 rm latest.tar.gz
 
-
+mysql -u root --password=$MYSQL_ROOT_PASSWORD -e "CREATE DATABASE $WP_SITE;"
+mysql -u root --password=$MYSQL_ROOT_PASSWORD -e "CREATE USER '$WP_DB_USER'@'localhost' IDENTIFIED BY '$WP_DB_PASSWD';"
+mysql -u root --password=$MYSQL_ROOT_PASSWORD -e "GRANT ALL ON $WP_SITE.* TO '$WP_DB_USER'@'localhost';"
 
